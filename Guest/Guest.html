@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Home - Grand Palace Hotel</title>
+    <link rel="stylesheet" href="guest.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-hotel"></i>
+                <span>Grand Palace</span>
+            </div>
+            <ul class="auth-buttons">
+                <li><a href="Guest.html">Home</a></li>
+                <li><a href="#about" class="sign-in-btn">About Us</a></li>
+                
+                <!-- Services Dropdown -->
+                <li class="dropdown">
+                    <a href="#services" class="sign-in-btn">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="viewroom.php">View Room Availability</a></li>
+                        <li><a href="bookroom.html">Book a Room</a></li>
+                        <li><a href="feedback.html">Send Feedback</a></li>
+                        <li><a href="request for cleaning.html">Request Room Cleaning</a></li>
+                        <li><a href="cancelbooking.html">Cancel Booking</a></li>
+                    </ul>
+                </li>
+    
+                <li><a href="#contact" class="sign-in-btn">Contact Us</a></li>
+                <li><a href="index.html" class="sign-up-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome Guest Grand Palace</h1>
+        <p>Luxury, Comfort, and Elegance Await You</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="guest-section">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Experience world-class hospitality with premium rooms, delicious cuisines, and exceptional services at Grand Palace Hotel. Enjoy modern amenities, breathtaking views, and a truly unforgettable stay. Whether you're traveling for business or leisure, our dedicated staff ensures comfort, luxury, and memorable moments throughout your visit.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hotel Image">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="guest-section" style="background-color: #f5f5f5;">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-bed"></i>
+                <h3>View Room Availability</h3>
+                <p>Check available rooms and choose the best option for your stay.</p>
+                <a href="viewroom.php" class="service-link">Check Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Book a Room</h3>
+                <p>Reserve your room in advance for a comfortable stay.</p>
+                <a href="bookroom.html" class="service-link">Book Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-comment-dots"></i>
+                <h3>Send Feedback</h3>
+                <p>We value your opinion. Share your experience with us.</p>
+                <a href="feedback.html" class="service-link">Send Feedback</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-broom"></i>
+                <h3>Request Room Cleaning</h3>
+                <p>Need cleaning? Our staff is ready to assist anytime.</p>
+                <a href="request for cleaning.html" class="service-link">Request Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-ban"></i>
+                <h3>Cancel Booking</h3>
+                <p>Easily cancel your booking if your plans change.</p>
+                <a href="cancelbooking.html" class="service-link">Cancel Now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="guest-section">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <div class="input-group">
+                <input type="text" placeholder="Your Name" required style="border-radius: 10px;">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Your Email" required style="border-radius: 10px;">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="input-group">
+                <textarea placeholder="Your Message" rows="5" required style="border-radius: 10px;"></textarea>
+                <i class="fas fa-comment" id="asd"></i>
+            </div>
+            <button type="submit">Send Message <i id="btn_icon" class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +1 888 PALACE</p>
+                <p><i class="fas fa-envelope"></i> info@grandpalace.com</p>
+                <p><i class="fas fa-map-marker"></i> 1 Palace Avenue, Beverly Hills</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul id="fotr_quicktxt">
+                    <li><a href="#home" class="sign-in-btn">Home</a></li>
+                    <li><a href="#about" class="sign-in-btn">About Us</a></li>
+                    <li><a href="#services" class="sign-in-btn">Services</a></li>
+                    <li><a href="#contact" class="sign-in-btn">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Grand Palace Hotel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

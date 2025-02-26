@@ -1,0 +1,411 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a237e;
+    --secondary-color: #c2185b;
+    --accent-color: #00bcd4;
+    --gradient-start: #1a237e;
+    --gradient-end: #283593;
+    --text-color: #1a237e;
+    --light-bg: #f5f5f5;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 1.2rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    animation: fadeIn 1s ease-in;
+}
+
+.logo i {
+    margin-right: 15px;
+    color: white;
+    animation: pulse 2s infinite;
+    font-size: 2rem;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.auth-buttons button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-in-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--accent-color) !important;
+}
+
+.sign-in-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.sign-up-btn {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.sign-up-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(194, 24, 91, 0.3);
+}
+
+.signup-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    overflow: hidden;
+    min-width: 150px;
+}
+
+.signup-dropdown.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.signup-dropdown a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.signup-dropdown a:hover {
+    background: var(--light-bg);
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+    animation: fadeIn 2s ease-in;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: slideDown 1.5s ease-out;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: slideUp 1.5s ease-out;
+    letter-spacing: 1px;
+}
+
+/* Forms Section */
+.forms-container {
+    max-width: 500px;
+    margin: -100px auto 2rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.form-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 1s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.form-box h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.form-box h2 i {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.8rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    background: white;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.1);
+}
+
+.input-group input:focus + i {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondary-color), #e91e63);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(194, 24, 91, 0.3);
+}
+
+.form-box button i {
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.form-box button:hover i {
+    transform: translateX(5px);
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 4rem 2rem 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.footer-section i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: -0.8rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+    }
+    
+    .forms-container {
+        margin-top: 2rem;
+    }
+    
+    .form-box {
+        padding: 2rem;
+    }
+
+    .auth-buttons {
+        gap: 0.5rem;
+    }
+
+    .auth-buttons button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}

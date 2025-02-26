@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Palace Hotel - Luxury Redefined</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-hotel"></i>
+        <span>Grand Palace</span>
+      </div>
+      <div class="auth-buttons">
+        <button class="sign-in-btn" onclick="showSigninForm()">Sign In</button>
+        <button class="sign-up-btn" onclick="toggleDropdown()">Sign Up</button>
+        <div class="signup-dropdown" id="signupDropdown">
+          <a href="#" onclick="showSignupForm('guest')">Guest</a>
+          <a href="#" onclick="showSignupForm('manager')">Manager</a>
+          <a href="#" onclick="showSignupForm('staff')">Staff</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Grand Palace Hotel</h1>
+    <p>Experience Unmatched Luxury</p>
+  </section>
+
+  <!-- Forms Section -->
+  <section class="forms-container">
+    <!-- Sign In Form -->
+    <div class="form-box signin-form">
+      <h2><i class="fas fa-sign-in-alt"></i> Sign In</h2>
+      <form id="signinForm" method="POST" action="login.php">
+        <div class="input-group">
+          <input type="email" id="signinUserID" name="username" placeholder="Email" required>
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="input-group">
+          <input type="password" id="signinPassword" name="password" placeholder="Password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+        <button type="submit">Sign In <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+
+    <!-- Sign Up Form (Initially Hidden) -->
+    <div class="form-box signup-form" id="signupForm" style="display: none;">
+      <h2><i class="fas fa-user-plus"></i> Sign Up</h2>
+      <form id="signupFormDetails" method="POST" action="signup.php">
+        <div class="input-group">
+          <input type="text" id="signupName" name="full_name" placeholder="Full Name" required>
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="input-group">
+          <input type="email" id="signupEmail" name="email" placeholder="Email Address" required>
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="input-group">
+          <input type="password" id="signupPassword" name="password" placeholder="Password" required>
+          <i class="fas fa-lock"></i>
+        </div>
+        <!-- Single hidden input to capture the user type -->
+        <input type="hidden" id="userRole" name="user_type">
+        <button type="submit">Create Account <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> +1 888 PALACE</p>
+        <p><i class="fas fa-envelope"></i> info@grandpalace.com</p>
+        <p><i class="fas fa-map-marker"></i> 1 Palace Avenue, Beverly Hills</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Dining</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Grand Palace Hotel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Remove client-side "users" simulation if you're using PHP backend for actual processing
+    function toggleDropdown() {
+      const dropdown = document.getElementById('signupDropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    function showSignupForm(type) {
+      const signupForm = document.getElementById('signupForm');
+      const signinForm = document.querySelector('.signin-form');
+      const formTitle = signupForm.querySelector('h2');
+
+      formTitle.innerHTML = `<i class="fas fa-user-plus"></i> ${type.charAt(0).toUpperCase() + type.slice(1)} Sign Up`;
+      // Set the hidden input value to the selected user type
+      document.getElementById('userRole').value = type;
+
+      signupForm.style.display = 'block';
+      signinForm.style.display = 'none';
+      document.getElementById('signupDropdown').classList.remove('show');
+      clearSignupForm();
+    }
+
+    function showSigninForm() {
+      document.getElementById('signupForm').style.display = 'none';
+      document.querySelector('.signin-form').style.display = 'block';
+      clearSigninForm();
+    }
+
+    function clearSignupForm() {
+      document.querySelector('#signupForm input[placeholder="Full Name"]').value = '';
+      document.querySelector('#signupForm input[placeholder="Password"]').value = '';
+      document.querySelector('#signupForm input[placeholder="Email Address"]').value = '';
+    }
+
+    function clearSigninForm() {
+      document.querySelector('.signin-form input[placeholder="User ID"]').value = '';
+      document.querySelector('.signin-form input[placeholder="Password"]').value = '';
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.sign-up-btn')) {
+        const dropdowns = document.getElementsByClassName('signup-dropdown');
+        for (let dropdown of dropdowns) {
+          if (dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    document.querySelector('.sign-in-btn').addEventListener('click', showSigninForm);
+  </script>
+</body>
+</html>

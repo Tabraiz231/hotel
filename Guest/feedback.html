@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>FeedBack</title>
+    <style>
+            body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    padding: 0.5rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.auth-buttons {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    padding: 0;
+}
+
+.auth-buttons li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.auth-buttons li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #ff4081;
+    transition: width 0.3s ease;
+}
+
+.auth-buttons li a:hover::after {
+    width: 100%;
+}
+
+.auth-buttons li a:hover {
+    color: #ff4081;
+}
+
+.sign-up-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sign-up-btn i {
+    font-size: 1rem;
+    color: white;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown menu (hidden by default) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    list-style: none;
+    z-index: 1000;
+    min-width: 200px;
+    border-radius: 4px;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu li a {
+    color: #283593;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding-top: 100px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+        main {
+            max-width: 600px;
+            margin: 5rem auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea, button {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background: #c2185b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a3104b;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #a3104b;
+            outline: none;
+        }
+        footer {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 4rem 2rem 1.5rem;
+    margin-top: 0rem;
+}
+:root {
+    --primary-color: #1a237e;
+    --secondary-color: #c2185b;
+    --accent-color: #00bcd4;
+    --gradient-start: #1a237e;
+    --gradient-end: #283593;
+    --text-color: #1a237e;
+    --light-bg: #f5f5f5;
+    --hover:#a3104b;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.footer-section i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: -0.8rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+#fotr_quicktxt{
+    position: relative;
+    left:-38px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-hotel"></i>
+                <span>Grand Palace</span>
+            </div>
+            <ul class="auth-buttons">
+                <li><a href="Guest.html">Home</a></li>
+                <li><a href="#about" class="sign-in-btn">About Us</a></li>
+                
+                <!-- Services Dropdown -->
+                <li class="dropdown">
+                    <a href="#services" class="sign-in-btn">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="viewroom.php">View Room Availability</a></li>
+                        <li><a href="bookroom.html">Book a Room</a></li>
+                        <li><a href="feedback.html">Send Feedback</a></li>
+                        <li><a href="request for cleaning.html">Request Room Cleaning</a></li>
+                        <li><a href="cancelbooking.html">Cancel Booking</a></li>
+                    </ul>
+                </li>
+    
+                <li><a href="#contact" class="sign-in-btn">Contact Us</a></li>
+                <li><a href="index.html" class="sign-up-btn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Guest FeedBack</h1>
+        <p>Share your experience with us!</p>
+    </section>
+    <main>
+        <form class="feedback-form" method="POST" action="feedback.php">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="5">Excellent</option>
+                <option value="4">Very Good</option>
+                <option value="3">Good</option>
+                <option value="2">Fair</option>
+                <option value="1">Poor</option>
+            </select>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your comments or suggestions"></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +1 888 PALACE</p>
+                <p><i class="fas fa-envelope"></i> info@grandpalace.com</p>
+                <p><i class="fas fa-map-marker"></i> 1 Palace Avenue, Beverly Hills</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul id="fotr_quicktxt">
+                    <li><a href="Guest.html">Home</a></li>
+                    <li><a href="#about" class="sign-in-btn">About Us</a></li>
+                    <li><a href="#services" class="sign-in-btn">Services</a></li>
+                    <li><a href="#contact" class="sign-in-btn">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Grand Palace Hotel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
